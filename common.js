@@ -19,6 +19,10 @@ $('#chronic').change(function(e) {
     $('.chronic-item-box').append('<div class="chronic-item"><span>"'+value+'"</span><img src="img/chronic-delete.png" alt="delete"></div>');
     $('#chronic').val('');
 });
+//delete_chronic 
+$(document).on('click','.chronic-item img', function() {
+    $(this).parent().remove();
+})
 // RadioButton
 $('input[type="radio"]').each(function() {
 	$(this).click(function(){
