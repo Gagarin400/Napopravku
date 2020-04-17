@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+body {
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FAFBFF;
+}
+%font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+   @extend %font-montserrat;
+   font-weight: 600;
+   color: #1B234A;
+}
+p, span, label, input {
+    @extend %font-montserrat;
+    font-weight: 500;
+}
+button {
+    @extend %font-montserrat;
+}
+button:focus, input:focus {
+    outline: none;
+}
+main {
+    position: relative;
+}
+h1 {
+    font-size: 40px;
+    line-height: 52px;
+    position: absolute;
+    top: -77px;
+    margin: 0 0 24px;
+}
+
+.container {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgba(27, 35, 74, 0.15), 0px 4px 6px rgba(27, 35, 74, 0.06);
+    border-radius: 8px;
+    padding: 27px 0 32px;
+    text-align: center;
+    .start-form-img {
+        width: 464.23px;
+        margin-bottom: 52.54px;
+    }
+    h2 {
+        font-size: 26px;
+        line-height: 36px;
+        margin: 0 0 24px;
+        padding: 0 70px;
+    }
+    p {
+        padding: 0 75px;
+        font-size: 16px;
+        line-height: 28px;
+        color: #616F97;
+        margin-bottom: 40px;
+    }
+}
+%btn {
+    background: #40B3B7;
+    cursor: pointer;
+    height: 48px;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+}
+%btn-center {
+    display: flex;
+    align-items: center;
+}
+.start-form-btn {
+    padding: 12px;
+    @extend %btn-center;
+    @extend %btn;
+    margin: 0 auto;
+    div {
+        @extend %btn-center;
+    }
+    span:first-child {
+        margin-right: 16px;
+    }
+    span {
+        padding: 4px;
+    }
+    div {
+        padding-left: 16px;
+        border-left: 1px solid #36A1AF;
+    }
+    img {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+    }
+}
+.cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    z-index: 100;
+}
+  
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: auto;
+    overflow-y: scroll;
+    padding: 20px;
+    z-index: 200;
+    .modal-content {
+        display: none;
+        width: 763px;
+        margin: 0 auto;
+        position: relative;
+        background: #FFFFFF;
+        z-index: 300;
+        padding: 32px 0
+    }
+    .modal-header, .modal-body, .modal-footer {
+        padding: 0 32px;
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3 {
+            font-size: 20px;
+            line-height: 28px;
+            margin: 0;
+        }
+        img {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+        }
+    }
+    .modal-body {
+        border-bottom: 1px solid #DEE1ED;;
+    }
+    .modal-footer {
+        margin-top: 31px;
+        button {
+            @extend %btn;
+            padding: 16px 38px;
+        }
+    }
+}
+.warning-message-block {
+    h4 {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 27px;
+        margin-bottom: 16px;
+    }
+    .warning-message {
+        background: #FFF4CC;
+        border-radius: 4px;
+        padding: 16px;
+        margin-bottom: 24px;
+        p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 20px;
+            color: #1B234A;
+        }
+    }
+}
+form {
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 26px;
+        .form-row:not(:first-of-type) {
+            margin-top: 20px;
+        }
+        .form-row {
+            position: relative;
+            %input-check {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left: 0;
+                content: '';
+                background-size: 100%!important;
+            }
+            label {
+                font-size: 14px;
+                line-height: 20px;
+                color: #1B234A;
+                margin-left: 28px;
+            }
+            input, label {
+                cursor: pointer;
+            }
+            input {
+                display: none;
+            }
+            input[type="radio"] + label::before {
+                background: url('img/radio.svg') no-repeat;
+                @extend %input-check;
+            }
+            input[type="radio"]:checked + label::before { 
+                background: url('img/radio_active.svg') no-repeat;
+                @extend %input-check;
+            }
+            input[type="checkbox"] + label::before {
+                background: url('img/checkbox.svg') no-repeat;
+                @extend %input-check;
+            }
+            input[type="checkbox"]:checked + label::before { 
+                background: url('img/checkbox_active.svg') no-repeat;
+                @extend %input-check;
+            }
+        }
+        .form-row:first-of-type {
+            margin-top: 18px;
+        }
+        #chronic {
+            border: 1px solid #A0A8C5;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding: 10px 12px;
+            width: 100%;
+            font-size: 16px;
+            line-height: 28px;
+            margin-top: 4px;
+            margin-bottom: 16px;
+            color: #A0A8C5;
+        }
+        #chronic::placeholder {
+            color: #A0A8C5;
+        }
+        .chronic-item-box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .chronic-item {
+            background: #DAFBF1;
+            border-radius: 4px;
+            padding: 6px 12px 6px 9px;
+            width: max-content;
+            margin: 0 8px 8px 0;
+            span {
+                font-size: 14px;
+                line-height: 20px;
+                color: #40B3B7;
+                margin-right: 12px;
+            }
+            img {
+                width: 8px;
+                height: 8px;
+                cursor: pointer;
+            }
+        }
+    }
+    .form-col-block {
+        display: flex;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+        .form-col {
+            width: 50%;
+        }
+    }
+    h5 {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+    }
+    h6 {
+        font-size: 16px;
+        line-height: 28px;
+        margin: 0 0 8px;
+    }
+    p {
+        font-size: 12px;
+        line-height: 18px;
+        color: #A0A8C5;
+        margin: 0 0 16px;
+    }
+}
+@media (max-height:900px){
+    body {
+        height: auto;
+        padding: 200px;
+    }
+}
+@media (max-width:480px) {
+    form .form-col-block .form-col {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .modal {
+        padding: 0;
+        .modal-content {
+            padding: 0 0 25px 0;
+        }
+        .modal-header {
+            padding: 17px 21px;
+        }
+        .modal-body, .modal-footer {
+            padding: 0 16px;
+        }
+        .modal-header {
+            box-shadow: 0px 0px 1px rgba(27, 35, 74, 0.15), 0px 4px 6px rgba(27, 35, 74, 0.06);
+            justify-content: center;
+            position: relative;
+            a {
+                position: absolute;
+                left: 21px
+            }
+        }
+        .modal-body {
+            border-bottom: none;
+        }
+        .modal-footer {
+            margin-top: 0;
+            button {
+                width: 100%;
+            }
+        }
+    }
+    .warning-message-block .warning-message {
+        border-radius: 8px;
+    }
+}
+@media (max-width: 640px) {
+    .container {
+        padding: 16px;
+        .start-form-img {
+            width: 100%;
+            margin-bottom: 61.54px;
+        }
+        h2, p {
+            padding: 0;
+        }
+        h2 {
+            margin-bottom: 16px;
+        }
+        p {
+            margin-bottom: 32px;
+        }
+    }
+
+}
+@media (max-width: 1024px) {
+    body {
+        padding: 0;
+    }
+    h1 {
+        position: initial;
+        margin: 16px;
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .container {
+        h2 {
+            font-size: 22px;
+            line-height: 32px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+    .modal .modal-content {
+        width: 100%;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        width: 846px;
+    }
+}
