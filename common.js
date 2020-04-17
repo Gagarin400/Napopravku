@@ -16,7 +16,7 @@ $('form').on("submit", function(){
 })
 $('#chronic').change(function(e) {
     let value = $('#chronic').val();
-    $('.chronic-item-box').append('<div class="chronic-item"><span>"'+value+'"</span><img src="img/chronic-delete.png" alt="delete"></div>');
+    $('.chronic-item-box').append('<div class="chronic-item"><span>'+value+'</span><img src="img/chronic-delete.png" alt="delete"></div>');
     $('#chronic').val('');
 });
 //delete_chronic 
